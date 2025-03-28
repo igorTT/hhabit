@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
-const { program } = require('commander');
-const chalk = require('chalk');
+import { program } from 'commander';
+import chalk from 'chalk';
+import initCommand from './commands/init.js';
+import trackCommand from './commands/track.js';
+import analyzeCommand from './commands/analyze.js';
+import motivateCommand from './commands/motivate.js';
 
 program
   .name('healthhabit')
@@ -11,33 +15,21 @@ program
 program
   .command('init')
   .description('Initialize your health habits')
-  .action(async () => {
-    console.log(chalk.blue('Initializing HealthHabit...'));
-    // TODO: Implement initialization logic
-  });
+  .action(initCommand);
 
 program
   .command('track')
   .description('Track your daily habits')
-  .action(async () => {
-    console.log(chalk.blue('Starting habit tracking...'));
-    // TODO: Implement tracking logic
-  });
+  .action(trackCommand);
 
 program
   .command('analyze')
   .description('Analyze your habit progress')
-  .action(async () => {
-    console.log(chalk.blue('Analyzing your habits...'));
-    // TODO: Implement analysis logic
-  });
+  .action(analyzeCommand);
 
 program
   .command('motivate')
   .description('Get motivation for your habits')
-  .action(async () => {
-    console.log(chalk.blue('Generating motivation...'));
-    // TODO: Implement motivation logic
-  });
+  .action(motivateCommand);
 
 program.parse();
